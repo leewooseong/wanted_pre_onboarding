@@ -1,0 +1,39 @@
+.tabCont {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 420px;
+  height: 40px;
+  margin: 30px;
+  overflow: hidden;
+}
+
+.activeItem {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  width: 140px;
+  height: 4px;
+  content: '';
+  background-color: #10afaf;
+  transition: all 0.5s;
+}
+
+.tabButton {
+  width: 140px;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: #aaaaaa;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid #ebebeb;
+  transition: all 0.5s;
+}
+
+.active {
+  font-weight: 600;
+  color: #000000;
+}

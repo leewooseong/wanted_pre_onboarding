@@ -1,0 +1,81 @@
+.inputCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 270px;
+  height: 165px;
+  margin: 30px;
+
+  div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+
+    & button {
+      position: absolute;
+      top: 35px;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
+
+    & svg {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+    }
+
+    & svg.fillColor {
+      fill: #32bea6;
+    }
+
+    &.pwWrapper svg {
+      position: relative;
+      top: -1px;
+      right: 5px;
+    }
+  }
+
+  & label {
+    display: inline-block;
+    margin: 5px;
+    font-size: 12px;
+    color: gray;
+  }
+
+  & input {
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+    background-color: rgb(244 244 249);
+    border: 1px solid rgb(217 217 216);
+    border-radius: 5px;
+
+    ::placeholder {
+      color: rgb(217 217 216);
+    }
+
+    &:focus,
+    &:active {
+      outline: 1px solid #999999;
+    }
+  }
+
+  & p {
+    padding-left: 5px;
+    font-size: 10px;
+    color: #d73333;
+  }
+
+  & p.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}

@@ -1,0 +1,52 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin: 30px;
+}
+
+.rangeValue {
+  height: 70px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+}
+
+.rangeValue p {
+  margin: 0;
+  margin-right: 10px;
+  line-height: 70px;
+}
+
+.rangeValue span {
+  margin-left: 5px;
+}
+
+input[type='range'] {
+  display: block;
+  cursor: pointer;
+}
+
+.percentMarkList {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    width: 50px;
+  }
+
+  & button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+  }
+}
