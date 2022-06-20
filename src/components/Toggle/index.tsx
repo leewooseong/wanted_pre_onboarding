@@ -4,18 +4,18 @@ import styles from './toggle.module.scss'
 
 const ARRAY_LIST = ['기본', '상세']
 
-function Toggle() {
-  const [activeIndex, setActiveIndex] = useState(0)
+const Toggle = () => {
+  //   const [activeIndex, setActiveIndex] = useState(0)
 
-  const handleClick = (e) => {
-    console.log(e.currentTarget.dataset.index)
-    setActiveIndex(e.currentTarget.dataset.index)
-    console.log('activeIndex', activeIndex)
-  }
+  //   const handleClick = (e) => {
+  //     console.log(e.currentTarget.dataset.index)
+  //     setActiveIndex(e.currentTarget.dataset.index)
+  //     console.log('activeIndex', activeIndex)
+  //   }
   // rendering 함수
   return (
     <div className={styles.toggleCont}>
-      <div className={styles.activeItem} style={{ transform: `translateX(${activeIndex * 200}px)` }} />
+      {/* <div className={styles.activeItem} style={{ transform: `translateX(${activeIndex * 200}px)` }} />
       {ARRAY_LIST.map((value, index) => (
         <button
           button
@@ -27,7 +27,7 @@ function Toggle() {
         >
           {value}
         </button>
-      ))}
+      ))} */}
     </div>
   )
 }

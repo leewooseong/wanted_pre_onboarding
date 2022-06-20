@@ -2,19 +2,19 @@ import { useState } from 'react'
 import cx from 'classnames'
 import styles from './Slider.module.scss'
 
-function Slider() {
-  const rangeData = [1, 25, 50, 75, 100]
-  const [sliderValue, setSliderValue] = useState(1)
-  const handleChange = (e) => {
-    setSliderValue(e.target.value)
-  }
-  const handleClick = (e, value) => {
-    setSliderValue(value)
-  }
+const Slider = () => {
+  //   const rangeData = [1, 25, 50, 75, 100]
+  //   const [sliderValue, setSliderValue] = useState(1)
+  //   const handleChange = (e) => {
+  //     setSliderValue(e.target.value)
+  //   }
+  //   const handleClick = (e, value) => {
+  //     setSliderValue(value)
+  //   }
 
   return (
     <form>
-      <div className={styles.rangeValue}>
+      {/* <div className={styles.rangeValue}>
         <p>
           {sliderValue}
           <span>%</span>
@@ -29,7 +29,7 @@ function Slider() {
             </button>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </form>
   )
 }

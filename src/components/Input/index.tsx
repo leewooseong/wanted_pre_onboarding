@@ -3,46 +3,46 @@ import cx from 'classnames'
 import styles from './Input.module.scss'
 import { EmailCheckImage, PWHideImage, PWShowImage } from '../../assets/svgs'
 
-function Input() {
-  const [emailValid, setEmailValid] = useState(false)
-  const [showAlert, setShowAlert] = useState(false)
-  const [showPW, setShowPW] = useState(false)
+const Input = () => {
+  //   const [emailValid, setEmailValid] = useState(false)
+  //   const [showAlert, setShowAlert] = useState(false)
+  //   const [showPW, setShowPW] = useState(false)
 
-  // email 유효성 검사 함수
-  const validateEmail = (input) => {
-    const emailRule = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i
-    return emailRule.test(input)
-  }
+  //   // email 유효성 검사 함수
+  //   const validateEmail = (input) => {
+  //     const emailRule = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i
+  //     return emailRule.test(input)
+  //   }
 
-  // email input DOM의 이벤트 핸들러
-  const handleChange = (e) => {
-    if (e.target.value === '') {
-      setShowAlert(false)
-    } else if (validateEmail(e.target.value)) {
-      setShowAlert(false)
-      setEmailValid(true)
-    } else if (!validateEmail(e.target.value)) {
-      setEmailValid(false)
-    }
-  }
+  //   // email input DOM의 이벤트 핸들러
+  //   const handleChange = (e) => {
+  //     if (e.target.value === '') {
+  //       setShowAlert(false)
+  //     } else if (validateEmail(e.target.value)) {
+  //       setShowAlert(false)
+  //       setEmailValid(true)
+  //     } else if (!validateEmail(e.target.value)) {
+  //       setEmailValid(false)
+  //     }
+  //   }
 
-  const handleBlur = (e) => {
-    // emailValid가 false일 때 포커스 아웃된 경우
-    if (e.target.value !== '' && !emailValid && e.currentTarget === e.target) {
-      setShowAlert(true)
-    }
-  }
+  //   const handleBlur = (e) => {
+  //     // emailValid가 false일 때 포커스 아웃된 경우
+  //     if (e.target.value !== '' && !emailValid && e.currentTarget === e.target) {
+  //       setShowAlert(true)
+  //     }
+  //   }
 
-  const handlePWImgClick = (e) => {
-    setShowPW((preState) => {
-      return !preState
-    })
-  }
+  //   const handlePWImgClick = (e) => {
+  //     setShowPW((preState) => {
+  //       return !preState
+  //     })
+  //   }
 
   // rendering 함수
   return (
     <form className={styles.inputCont}>
-      <div className='emailWrapper'>
+      {/* <div className='emailWrapper'>
         <label htmlFor='email-inp'>E-mail</label>
         <input
           type='email'
@@ -63,7 +63,7 @@ function Input() {
         <button type='button' onClick={handlePWImgClick}>
           {showPW ? <PWShowImage /> : <PWHideImage />}
         </button>
-      </div>
+      </div> */}
     </form>
   )
 }
