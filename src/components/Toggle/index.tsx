@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import cx from 'classnames'
-import styles from './Toggle.module.scss'
+import styles from './toggle.module.scss'
 
 const ARRAY_LIST = ['기본', '상세']
 

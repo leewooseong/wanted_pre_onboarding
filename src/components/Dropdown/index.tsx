@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import cx from 'classnames'
-import styles from './Dropdown.module.scss'
+import styles from './dropdown.module.scss'
 import { DropdownArrow } from '../../assets/svgs'
 
 function Dropdown() {
