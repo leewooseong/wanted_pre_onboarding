@@ -14,6 +14,8 @@
 }
 
 .activeItem {
+  --toggle-index: 0;
+  --toggle-position: calc(var(--toggle-index) * 100%);
   position: absolute;
   left: 0;
   z-index: 10;
@@ -21,18 +23,19 @@
   height: 100%;
   content: '';
   background-color: colors.$WHITE;
-  border: none;
+  border: var(--toggle-border) solid black;
   border-radius: 50px;
   transition: all 0.5s;
+  transform: translateX(var(--toggle-position));
 }
 
-.togglebutton {
+.toggleButton {
   z-index: 20;
   width: 50%;
   padding: 0;
   margin: 0;
   font-size: 15px;
-  color: #aaaaaa;
+  color: colors.$GRAYA;
   background: transparent;
   border: none;
   transition: all 0.5s;

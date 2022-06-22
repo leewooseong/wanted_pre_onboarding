@@ -7,7 +7,8 @@
 
 **HTML**
 
--   `button tag` 2개를 `div tag`로 감싸는 형태로 구현하였습니다.
+- `button tag` 위를 `div tag`가 이동하는 형태로 구현하였습니다.
+- 클릭된 아이템의 버튼 위로 `div tag`가 이동합니다.
 
 **CSS**
 

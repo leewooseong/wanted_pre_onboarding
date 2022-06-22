@@ -1,33 +1,30 @@
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import cx from 'classnames'
 import styles from './toggle.module.scss'
 
 const ARRAY_LIST = ['기본', '상세']
 
 const Toggle = () => {
-  //   const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
 
-  //   const handleClick = (e) => {
-  //     console.log(e.currentTarget.dataset.index)
-  //     setActiveIndex(e.currentTarget.dataset.index)
-  //     console.log('activeIndex', activeIndex)
-  //   }
-  // rendering 함수
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    setActiveIndex(Number(e.currentTarget.dataset.index))
+  }
+
   return (
     <div className={styles.toggleCont}>
-      {/* <div className={styles.activeItem} style={{ transform: `translateX(${activeIndex * 200}px)` }} />
+      <div className={styles.activeItem} style={{ '--toggle-index': activeIndex } as React.CSSProperties} />
       {ARRAY_LIST.map((value, index) => (
         <button
-          button
           type='button'
-          key={`tab${index}`}
-          className={cx(styles.togglebutton, { [styles.active]: activeIndex == index })}
+          key={`tab-${index}`}
+          className={cx(styles.toggleButton, { [styles.active]: activeIndex === index })}
           data-index={index}
           onClick={handleClick}
         >
           {value}
         </button>
-      ))} */}
+      ))}
     </div>
   )
 }
