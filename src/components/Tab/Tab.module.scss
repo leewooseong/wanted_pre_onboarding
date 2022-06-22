@@ -1,3 +1,5 @@
+@use './src/styles/constants/colors';
+
 .tabCont {
   position: relative;
   display: flex;
@@ -10,15 +12,18 @@
 }
 
 .activeItem {
+  --tab-index: 0;
+  --tab-position: calc(var(--tab-index) * 100%);
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 20;
+  z-index: 10;
   width: 140px;
   height: 4px;
   content: '';
-  background-color: #10afaf;
+  background-color: colors.$MAIN_COLOR;
   transition: all 0.5s;
+  transform: translateX(var(--tab-position));
 }
 
 .tabButton {
@@ -26,14 +31,14 @@
   padding: 0;
   margin: 0;
   font-size: 15px;
-  color: #aaaaaa;
+  color: colors.$GRAYA;
   background: transparent;
   border: none;
-  border-bottom: 4px solid #ebebeb;
+  border-bottom: 4px solid colors.$GRAY_BASIC;
   transition: all 0.5s;
 }
 
 .active {
   font-weight: 600;
-  color: #000000;
+  color: colors.$BLACK;
 }

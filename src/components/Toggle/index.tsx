@@ -17,7 +17,7 @@ const Toggle = () => {
       {ARRAY_LIST.map((value, index) => (
         <button
           type='button'
-          key={`tab-${index}`}
+          key={`toggle-${index}`}
           className={cx(styles.toggleButton, { [styles.active]: activeIndex === index })}
           data-index={index}
           onClick={handleClick}
