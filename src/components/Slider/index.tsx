@@ -30,7 +30,6 @@ const Slider = () => {
 
   return (
     <form>
-      {/* 아웃풋으로 구현해보기 */}
       <div className={styles.rangeValueCont}>
         <p>
           {rangeValue}
