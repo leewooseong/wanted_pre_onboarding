@@ -1,3 +1,5 @@
+@use './src/styles/constants/colors';
+
 form {
   display: flex;
   flex-direction: column;
@@ -26,27 +28,88 @@ form {
   }
 }
 
-input[type='range'] {
-  display: block;
-  cursor: pointer;
-}
+.sliderCont {
+  --track-height: 5px;
+  --track-width: 50%;
+  --thumb-height: 23px;
+  --thumb-width: 23px;
+  --mark-width: 15px;
+  --mark-height: 15px;
+  position: relative;
 
-.percentMarkList {
-  display: flex;
-  justify-content: space-between;
-  height: 20px;
-  padding: 0;
-  list-style: none;
-
-  & li {
-    width: 50px;
+  input[type='range'] {
+    width: 100%;
+    height: var(--track-height);
+    cursor: pointer;
+    background: colors.$GRAY_BG;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
-  & button {
-    width: 100%;
-    height: 100%;
+  input[type='range']::-webkit-slider-runnable-track {
+    position: absolute;
+    top: 10px;
+    left: calc(var(--mark-width) / -2);
+    z-index: 100;
+    width: calc(100% + var(--mark-width));
+    height: var(--track-height);
+    background: linear-gradient(to right, colors.$MAIN_COLOR var(--range-value), transparent var(--range-value));
+    border-radius: 10px;
+    -webkit-appearance: none;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    z-index: 10;
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    margin-top: calc(var(--track-height) / 2 - var(--thumb-height) / 2);
+    background-color: colors.$MAIN_COLOR;
+    border: 4px solid colors.$GRAY_BG;
+    border-radius: 50%;
+    -webkit-appearance: none;
+  }
+
+  .buttonList {
+    $listWidth: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% + $listWidth);
     padding: 0;
-    border: none;
-    border-radius: 20px;
+    margin-left: calc(($listWidth / -2));
+    list-style: none;
+
+    .listItem {
+      position: relative;
+      width: $listWidth;
+    }
+
+    .markButton {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      content: '';
+      background-color: colors.$GRAY_BG;
+      border: none;
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    .markButton.active {
+      background-color: colors.$MAIN_COLOR;
+    }
+
+    .numberButton {
+      width: 100%;
+      padding: 0;
+      cursor: pointer;
+      background-color: colors.$GRAY_BG;
+      border: none;
+      border-radius: 20px;
+    }
   }
 }

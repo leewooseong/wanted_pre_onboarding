@@ -13,9 +13,9 @@ const App = () => (
     <Tab />
     <h1>3. Slider.js</h1>
     <Slider />
-    <h1>4. Input.js</h1>
+    {/* <h1>4. Input.js</h1> */}
     {/* <Input /> */}
-    <h1>5. Dropdown.js</h1>
+    {/* <h1>5. Dropdown.js</h1> */}
     {/* <Dropdown /> */}
   </div>
 )

@@ -2,34 +2,76 @@ import { ChangeEvent, MouseEvent, useState } from 'react'
 import cx from 'classnames'
 import styles from './slider.module.scss'
 
+const SLIDER_DATA = [1, 25, 50, 75, 100]
 const Slider = () => {
-  const rangeData = [1, 25, 50, 75, 100]
-  const [sliderValue, setSliderValue] = useState(1)
+  const [rangeValue, setRangeValue] = useState(1)
+  const [markStatus, setMarkStatus] = useState(false)
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSliderValue(Number(e.target.value))
+    setRangeValue(Number(e.currentTarget.value))
   }
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    // setSliderValue()
+    setRangeValue(Number(e.currentTarget.dataset.sliderValue))
+  }
+
+  const changeToValueToShow = (value: number) => {
+    if (value === 1) {
+      return '0%'
+    }
+    return `${value}%`
+  }
+
+  const checkMarkStatus = (value: number) => {
+    if (rangeValue >= value) {
+      return true
+    }
+    return false
   }
 
   return (
     <form>
+      {/* 아웃풋으로 구현해보기 */}
       <div className={styles.rangeValueCont}>
         <p>
-          {sliderValue}
+          {rangeValue}
           <span>%</span>
         </p>
       </div>
-      <input type='range' min='1' max='100' value={sliderValue} onChange={handleChange} />
-      <ul className={styles.percentMarkList}>
-        {rangeData.map((value, index) => (
-          <li key={`slider-${index}`}>
-            <button type='button' onClick={handleClick}>
-              <span>{value}</span>%
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.sliderCont}>
+        <input
+          id={styles.sliderInput}
+          type='range'
+          min='1'
+          max='100'
+          value={rangeValue}
+          onChange={handleChange}
+          style={{ '--range-value': `${changeToValueToShow(rangeValue)}` } as React.CSSProperties}
+          list='sliderMarkerList'
+        />
+        <ul className={styles.buttonList}>
+          {SLIDER_DATA.map((value, index) => (
+            <li className={styles.listItem} key={`mark-${index}`}>
+              <button
+                type='button'
+                data-slider-value={value}
+                onClick={handleClick}
+                className={cx(styles.markButton, { [styles.active]: checkMarkStatus(value) })}
+              >
+                {' '}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <ul className={styles.buttonList}>
+          {SLIDER_DATA.map((value, index) => (
+            <li className={styles.listItem} key={`number-${index}`}>
+              <button type='button' data-slider-value={value} onClick={handleClick} className={styles.numberButton}>
+                {value}%
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </form>
   )
 }
